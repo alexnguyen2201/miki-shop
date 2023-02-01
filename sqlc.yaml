@@ -1,0 +1,18 @@
+version: "1"
+project:
+  id: ""
+packages:
+  - name: "db"
+    path: "./db/sqlc"
+    queries: "./db/query/"
+    schema: "./db/migration/"
+    engine: "postgresql"
+    emit_json_tags: true
+    emit_prepared_queries: false # use to increase perf - use later
+    emit_interface: true # use to mock db - use later
+    emit_exact_table_names: false
+    # accounts table -> Account struct (without 's') - false
+    # - better becasue prevent confuse with multiple objects
+    # accounts table -> Accounts struct (has 's') - true
+    emit_empty_slices: true
+    # init array of Object with value [] instead of nil
