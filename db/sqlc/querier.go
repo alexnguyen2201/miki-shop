@@ -14,7 +14,7 @@ type Querier interface {
 	DeleteProduct(ctx context.Context, id int64) error
 	GetProduct(ctx context.Context, id int64) (Product, error)
 	GetProductForUpdate(ctx context.Context, id int64) (Product, error)
-	GetUser(ctx context.Context, id int64) (User, error)
+	GetUser(ctx context.Context, username string) (User, error)
 	ListProducts(ctx context.Context, arg ListProductsParams) ([]Product, error)
 	UpdateProduct(ctx context.Context, arg UpdateProductParams) (Product, error)
 }
