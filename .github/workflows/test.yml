@@ -50,5 +50,16 @@ jobs:
       - name: Run migrations
         run: make migrateup
 
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v1.3.0
+        with:
+          envkey_DB_DRIVER: ${{ secrets.DB_DRIVER }}
+          envkey_DB_SOURCE: ${{ secrets.DB_SOURCE }}
+          envkey_SERVER_ADDRESS: ${{ secrets.SERVER_ADDRESS }}
+          envkey_TOKEN_SYMMETRIC_KEY: ${{ secrets.TOKEN_SYMMETRIC_KEY }}
+          envkey_ACCESS_TOKEN_DURATION: ${{ secrets.ACCESS_TOKEN_DURATION }}
+          directory: "."
+          file_name: app.env
+
       - name: Test
         run: make test
