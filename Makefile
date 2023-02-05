@@ -31,4 +31,7 @@ server:
 mock:
 	mockgen -package mockdb -destination db/mock/store.go github.com/nguyenvanson2201/miki-shop/db/sqlc Store
 
+# migratefile:
+# 	migrate create -ext sql -dir db/migration -seq {}
+
 .PHONY: postgres craetedb dropdb migrateup migrateup1 migratedown migratedown1 sqlc test mock

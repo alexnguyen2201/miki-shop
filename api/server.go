@@ -47,14 +47,16 @@ func (server *Server) setupRouter() {
 	//for normal user
 	router.POST("/users/login", server.loginUser)
 
+	// ProductType route
+	router.POST("/product_types", server.createProductType)
+	router.GET("/product_types", server.getProductTypeList)
+	router.GET("/product_types/:id", server.getProductType)
+
+	// ProductType
 
 	// Auth route
 	authRoutes := router.Group("/").Use(authMiddleware(server.tokenMaker))
 	authRoutes.GET("/users/:id", server.getUser)
-
-
-
-
 	server.router = router
 }
 

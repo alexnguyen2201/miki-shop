@@ -1,6 +1,15 @@
 DROP TABLE IF EXISTS mt_product_order;
-DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS mt_product_cart;
+DROP TABLE IF EXISTS carts;
+DROP TABLE IF EXISTS ratings;
+DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS users;
-
-
+DROP TABLE IF EXISTS mt_product_warranty;
+DROP TABLE IF EXISTS warranties;
+DROP TABLE IF EXISTS mt_product_file;
+DROP TABLE IF EXISTS files;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS product_types;
+DROP TABLE IF EXISTS sizes;
+DROP TABLE IF EXISTS colors;
