@@ -21,15 +21,6 @@ type Cart struct {
 	Discount sql.NullInt64 `json:"discount"`
 }
 
-type Color struct {
-	ID        int64         `json:"id"`
-	Color     string        `json:"color"`
-	CreatedAt time.Time     `json:"created_at"`
-	UpdatedAt time.Time     `json:"updated_at"`
-	CreatedBy sql.NullInt64 `json:"created_by"`
-	UpdatedBy sql.NullInt64 `json:"updated_by"`
-}
-
 type Comment struct {
 	ID            int64          `json:"id"`
 	Content       sql.NullString `json:"content"`
@@ -68,18 +59,6 @@ type MtProductCart struct {
 	Discount sql.NullInt64 `json:"discount"`
 }
 
-type MtProductFile struct {
-	ID int64 `json:"id"`
-	// image for descriptions, image for thumnail
-	Purpose   string        `json:"purpose"`
-	ProductID int64         `json:"product_id"`
-	FileID    int64         `json:"file_id"`
-	CreatedAt time.Time     `json:"created_at"`
-	UpdatedAt time.Time     `json:"updated_at"`
-	CreatedBy sql.NullInt64 `json:"created_by"`
-	UpdatedBy sql.NullInt64 `json:"updated_by"`
-}
-
 type MtProductOrder struct {
 	ID        int64 `json:"id"`
 	ProductID int64 `json:"product_id"`
@@ -96,14 +75,26 @@ type MtProductOrder struct {
 	Discount sql.NullInt64 `json:"discount"`
 }
 
-type MtProductWarranty struct {
-	ID         int64         `json:"id"`
-	ProductID  int64         `json:"product_id"`
-	WarrantyID int64         `json:"warranty_id"`
-	CreatedAt  time.Time     `json:"created_at"`
-	UpdatedAt  time.Time     `json:"updated_at"`
-	CreatedBy  sql.NullInt64 `json:"created_by"`
-	UpdatedBy  sql.NullInt64 `json:"updated_by"`
+type MtProductTypeFile struct {
+	ID int64 `json:"id"`
+	// image for descriptions, image for thumnail
+	Purpose       string        `json:"purpose"`
+	ProductTypeID int64         `json:"product_type_id"`
+	FileID        int64         `json:"file_id"`
+	CreatedAt     time.Time     `json:"created_at"`
+	UpdatedAt     time.Time     `json:"updated_at"`
+	CreatedBy     sql.NullInt64 `json:"created_by"`
+	UpdatedBy     sql.NullInt64 `json:"updated_by"`
+}
+
+type MtProductTypeWarranty struct {
+	ID            int64         `json:"id"`
+	ProductTypeID int64         `json:"product_type_id"`
+	WarrantyID    int64         `json:"warranty_id"`
+	CreatedAt     time.Time     `json:"created_at"`
+	UpdatedAt     time.Time     `json:"updated_at"`
+	CreatedBy     sql.NullInt64 `json:"created_by"`
+	UpdatedBy     sql.NullInt64 `json:"updated_by"`
 }
 
 type Order struct {
@@ -119,19 +110,18 @@ type Order struct {
 }
 
 type Product struct {
-	ID            int64         `json:"id"`
-	ProductTypeID int64         `json:"product_type_id"`
-	Title         string        `json:"title"`
-	Price         int64         `json:"price"`
-	ColorID       sql.NullInt64 `json:"color_id"`
-	SizeID        sql.NullInt64 `json:"size_id"`
-	Stock         int64         `json:"stock"`
-	QuantitySold  int64         `json:"quantity_sold"`
-	Rating        int32         `json:"rating"`
-	CreatedAt     time.Time     `json:"created_at"`
-	UpdatedAt     time.Time     `json:"updated_at"`
-	CreatedBy     sql.NullInt64 `json:"created_by"`
-	UpdatedBy     sql.NullInt64 `json:"updated_by"`
+	ID            int64          `json:"id"`
+	ProductTypeID int64          `json:"product_type_id"`
+	Price         int64          `json:"price"`
+	Color         sql.NullString `json:"color"`
+	Size          sql.NullInt64  `json:"size"`
+	Stock         int64          `json:"stock"`
+	QuantitySold  int64          `json:"quantity_sold"`
+	Rating        int64          `json:"rating"`
+	CreatedAt     time.Time      `json:"created_at"`
+	UpdatedAt     time.Time      `json:"updated_at"`
+	CreatedBy     sql.NullInt64  `json:"created_by"`
+	UpdatedBy     sql.NullInt64  `json:"updated_by"`
 	// by %, overwrite product_types.discount
 	Discount sql.NullInt64 `json:"discount"`
 }
@@ -155,15 +145,6 @@ type Rating struct {
 	ProductTypeID int64 `json:"product_type_id"`
 	// 1, 1.5, 2, 2.5 ... 5
 	Stars     sql.NullInt64 `json:"stars"`
-	CreatedAt time.Time     `json:"created_at"`
-	UpdatedAt time.Time     `json:"updated_at"`
-	CreatedBy sql.NullInt64 `json:"created_by"`
-	UpdatedBy sql.NullInt64 `json:"updated_by"`
-}
-
-type Size struct {
-	ID        int64         `json:"id"`
-	Size      int64         `json:"size"`
 	CreatedAt time.Time     `json:"created_at"`
 	UpdatedAt time.Time     `json:"updated_at"`
 	CreatedBy sql.NullInt64 `json:"created_by"`

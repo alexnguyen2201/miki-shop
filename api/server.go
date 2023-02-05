@@ -52,7 +52,9 @@ func (server *Server) setupRouter() {
 	router.GET("/product_types", server.getProductTypeList)
 	router.GET("/product_types/:id", server.getProductType)
 
-	// ProductType
+	// Product route
+	router.POST("/products", server.createProduct)
+	router.GET("/products/:id", server.getProduct)
 
 	// Auth route
 	authRoutes := router.Group("/").Use(authMiddleware(server.tokenMaker))

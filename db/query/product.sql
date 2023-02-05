@@ -1,15 +1,12 @@
 -- name: CreateProduct :one
 INSERT INTO products (
   product_type_id,
-  title,
   price,
-  size_id,
-  color_id,
-  stock,
-  quantity_sold,
-  rating
+  size,
+  color,
+  stock
 ) VALUES (
-  $1, $2, $3, $4, $5, $6, $7, $8
+  $1, $2, $3, $4, $5
 ) RETURNING *;
 
 -- name: GetProduct :one
@@ -29,7 +26,7 @@ OFFSET $2;
 
 -- name: UpdateProduct :one
 UPDATE products
-SET title = $2
+SET price = $2
 WHERE id = $1
 RETURNING *;
 

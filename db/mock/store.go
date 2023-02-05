@@ -213,6 +213,21 @@ func (mr *MockStoreMockRecorder) GetUserByUserName(arg0, arg1 interface{}) *gomo
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetUserByUserName", reflect.TypeOf((*MockStore)(nil).GetUserByUserName), arg0, arg1)
 }
 
+// GetWarranty mocks base method.
+func (m *MockStore) GetWarranty(arg0 context.Context, arg1 int64) ([]db.GetWarrantyRow, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetWarranty", arg0, arg1)
+	ret0, _ := ret[0].([]db.GetWarrantyRow)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetWarranty indicates an expected call of GetWarranty.
+func (mr *MockStoreMockRecorder) GetWarranty(arg0, arg1 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetWarranty", reflect.TypeOf((*MockStore)(nil).GetWarranty), arg0, arg1)
+}
+
 // ListProducts mocks base method.
 func (m *MockStore) ListProducts(arg0 context.Context, arg1 db.ListProductsParams) ([]db.Product, error) {
 	m.ctrl.T.Helper()

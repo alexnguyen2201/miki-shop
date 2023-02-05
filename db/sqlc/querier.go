@@ -21,6 +21,7 @@ type Querier interface {
 	GetProductTypeForUpdate(ctx context.Context, id int64) (ProductType, error)
 	GetUserByID(ctx context.Context, id int64) (User, error)
 	GetUserByUserName(ctx context.Context, username string) (User, error)
+	GetWarranty(ctx context.Context, productTypeID int64) ([]GetWarrantyRow, error)
 	ListProducts(ctx context.Context, arg ListProductsParams) ([]Product, error)
 	UpdateProduct(ctx context.Context, arg UpdateProductParams) (Product, error)
 	UpdateProductType(ctx context.Context, arg UpdateProductTypeParams) (ProductType, error)
